@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SimulatedLibraryMgt.Models.BusinessHoliday>
+
+@{ ViewBag.Title = "Business Holiday List"; }
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HolidayOccassion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.HolidayOccassion)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.FromDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ToDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IsActive)
+    </td>
+    <td>
+        @Html.ActionLink("View Details", "Details", new { id = item.BusinessHolidayId }) |
+        @Html.ActionLink("Edit", "Edit", new { id = item.BusinessHolidayId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.BusinessHolidayId })
+    </td>
+</tr>}
+
+</table>
